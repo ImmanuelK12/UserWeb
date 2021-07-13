@@ -1,0 +1,28 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign in</h1>
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="loginPageForm" (ngSubmit)="onSubmit()">
+        <input type="email" id="loginId" class="fadeIn second" name="loginId" formControlName="loginId" placeholder="Enter loginId">
+        <span class="text-danger text-left" *ngIf="loginPageForm?.get('loginId')?.touched && loginPageForm?.get('loginId')?.errors?.required">LoginId is required</span>
+
+        <input type="password" id="password" class="fadeIn third" name="password" formControlName="password" placeholder="Enter password">
+        <span class="text-danger text-left" *ngIf="loginPageForm?.get('password')?.touched && loginPageForm?.get('password')?.errors?.required">Password is required</span>
+        <span class="text-danger text-left" *ngIf="loginPageForm?.get('password')?.touched && loginPageForm?.get('password')?.errors?.minlength">Password must be minimum of 8 character long</span>
+        
+        <input type="submit" class="fadeIn fourth" value="Log In">
+      </form>
+  
+      <!-- Sign Up button -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#" routerLink="./../register">Sign Up</a>
+      </div>
+  
+    </div>
+  </div>

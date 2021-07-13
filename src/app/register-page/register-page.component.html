@@ -1,0 +1,58 @@
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+      <!-- Tabs Titles -->
+  
+      <!-- Icon -->
+      <div class="fadeIn first">
+        <h1 class="h3 mb-3 font-weight-normal" style="text-align: center"> Sign Up</h1>
+      </div>
+  
+      <!-- Login Form -->
+      <form [formGroup]="registerPage" (ngSubmit)="onSubmit()" autocomplete="off">
+        <input type="text" id="username" class="fadeIn second" name="username" formControlName="username" placeholder="Enter username">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('username')?.touched && registerPage?.get('username')?.errors?.required">User Name is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('username')?.touched && registerPage?.get('username')?.errors?.pattern">User Name is invalid</span>
+
+        <input type="text" id="name" class="fadeIn second" name="name" formControlName="name" placeholder="Enter name">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('name')?.touched && registerPage?.get('name')?.errors?.required">Name is required</span>
+        
+        <input type="email" id="email" class="fadeIn third" name="email" formControlName="email" placeholder="Enter email">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('email')?.touched && registerPage?.get('email')?.errors?.required">E-mail is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('email')?.touched && registerPage?.get('email')?.errors?.email">E-mail is not a valid email</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('email')?.touched && registerPage?.get('email')?.errors?.pattern">E-mail is invalid</span>
+
+        <input type="password" id="password" class="fadeIn fourth" name="password" formControlName="password" placeholder="Enter password">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.required">Password is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.minlength">Password must be minimum of 8 character long</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.maxlength">Password must be maximum of 20 character long</span>
+        <span class="text-danger text-left" *ngIf="(registerPage?.get('password')?.value !== registerPage?.get('confirmpassword')?.value) && registerPage?.get('password')?.touched && registerPage?.get('password')?.value">
+          Passwords and confirm password must be same
+        </span>
+        
+        <input type="password" id="confirmpassword" class="fadeIn fiveth" name="confirmpassword" formControlName="confirmpassword" placeholder="Enter confirm password">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.required">Confirm Password is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.minlength">Confirm Password must be minimum of 8 character long</span>
+        <span class="text-danger text-left" *ngIf="(registerPage?.get('password')?.value !== registerPage?.get('confirmpassword')?.value) && registerPage?.get('confirmpassword')?.touched && registerPage?.get('password')?.value">
+          Passwords and confirm password must be same
+        </span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.maxlength">Confirm Password must be maximum of 20 character long</span>
+
+        <input type="text" id="mobilenumber" class="fadeIn sixth" name="mobilenumber" formControlName="mobilenumber" placeholder="Enter mobile number">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('mobilenumber')?.touched && registerPage?.get('mobilenumber')?.errors?.required">Mobile Number is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('mobilenumber')?.touched && registerPage?.get('mobilenumber')?.errors?.minlength">Mobile Number must be minimum of 10 character long</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('mobilenumber')?.touched && registerPage?.get('mobilenumber')?.errors?.maxlength">Mobile Number must be maximum of 10 character long</span>
+
+        <textarea rows="2" id="address" class="fadeIn seventh" name="address" formControlName="address" placeholder="Enter address"></textarea>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('address')?.touched && registerPage?.get('address')?.errors?.required">Address is required</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('address')?.touched && registerPage?.get('address')?.errors?.minlength">Address must be minimum 30 character long</span>
+
+        <input type="submit" class="fadeIn eighth" value="Submit">
+      </form>
+  
+      <!-- Sign Button -->
+      <div id="formFooter">
+        <a class="underlineHover" href="#" routerLink="./../login">Sign In</a>
+      </div>
+  
+    </div>
+  </div>
