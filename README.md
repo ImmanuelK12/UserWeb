@@ -1,20 +1,6 @@
-# UserDev
+# AngularProject
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.0.5.
-
-This project contains three page login page, register page and user page
-
-## Install Angular cli
-
-Run `npm i -g @angular/cli` for the command prompt.
-
-## Install node module folder
-
-Run `npm i` for the command prompt.
-
-## Running the project
-
-Run `npm run serve` for the command prompt.
 
 ## Development server
 

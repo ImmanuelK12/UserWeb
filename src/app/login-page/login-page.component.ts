@@ -53,6 +53,10 @@ export class LoginPageComponent implements OnInit {
           this.authService.signIn();
         }
       });
+      if(!this.authService.getLoginUserId()?.length) {
+        this.authService.goToSignUp();
+        return;
+      }
     } else {
       this.authService.goToSignUp();
     }

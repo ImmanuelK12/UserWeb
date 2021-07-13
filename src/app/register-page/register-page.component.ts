@@ -12,8 +12,8 @@ import { AuthService } from '../shared/service/auth.service';
 })
 export class RegisterPageComponent implements OnInit {
 
-  unamePattern = "^[a-z0-9_-]{8,15}$";
-  pwdPattern = "^([a-zA-Z0-9@*#_$]{8,15})$";
+  unamePattern = "^[a-zA-Z0-9_]{8,15}$";
+  pwdPattern = "^[a-zA-Z0-9]{8,20}$";
   mobnumPattern = "^((\\+91-?)|0)?[0-9]{10}$"; 
   registerPage = new FormGroup ({});
   constructor(private authService: AuthService) { }
@@ -59,7 +59,7 @@ export class RegisterPageComponent implements OnInit {
       this.registerPage?.markAllAsTouched();
       return;
     }
-    if(this.registerPage?.get('password') != this.registerPage?.get('confirmpassword')) {
+    if(this.registerPage?.get('password')?.value != this.registerPage?.get('confirmpassword')?.value) {
       this.registerPage?.markAllAsTouched();
       return;
     }

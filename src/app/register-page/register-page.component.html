@@ -25,17 +25,19 @@
         <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.required">Password is required</span>
         <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.minlength">Password must be minimum of 8 character long</span>
         <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.maxlength">Password must be maximum of 20 character long</span>
-        <span class="text-danger text-left" *ngIf="(registerPage?.get('password')?.value !== registerPage?.get('confirmpassword')?.value) && registerPage?.get('password')?.touched && registerPage?.get('password')?.value">
+        <span class="text-danger text-left" *ngIf="registerPage?.get('password')?.touched && registerPage?.get('password')?.errors?.pattern">Password must be alphanumeric pattern</span>
+        <span class="text-danger text-left" *ngIf="(registerPage?.get('password')?.value !== registerPage?.get('confirmpassword')?.value) && registerPage?.get('password')?.touched && registerPage?.get('confirmpassword')?.value">
           Passwords and confirm password must be same
         </span>
         
         <input type="password" id="confirmpassword" class="fadeIn fiveth" name="confirmpassword" formControlName="confirmpassword" placeholder="Enter confirm password">
         <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.required">Confirm Password is required</span>
         <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.minlength">Confirm Password must be minimum of 8 character long</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.maxlength">Confirm Password must be maximum of 20 character long</span>
+        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.pattern">Confirm Password must be alphanumeric pattern</span>
         <span class="text-danger text-left" *ngIf="(registerPage?.get('password')?.value !== registerPage?.get('confirmpassword')?.value) && registerPage?.get('confirmpassword')?.touched && registerPage?.get('password')?.value">
           Passwords and confirm password must be same
         </span>
-        <span class="text-danger text-left" *ngIf="registerPage?.get('confirmpassword')?.touched && registerPage?.get('confirmpassword')?.errors?.maxlength">Confirm Password must be maximum of 20 character long</span>
 
         <input type="text" id="mobilenumber" class="fadeIn sixth" name="mobilenumber" formControlName="mobilenumber" placeholder="Enter mobile number">
         <span class="text-danger text-left" *ngIf="registerPage?.get('mobilenumber')?.touched && registerPage?.get('mobilenumber')?.errors?.required">Mobile Number is required</span>
